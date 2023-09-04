@@ -24,6 +24,7 @@
                 <ul>
                     <li><a href="wachtwoord_wijzigen.php">Wijzig wachtwoord</a></li>
                     <li><a href="gegevens_bekijken.php">Bekijk gegevens</a></li>
+                    <li><a href="inloggen.php">Log uit</a></li>
                 
             ';
             if ($_SESSION["is_admin"]){
@@ -31,11 +32,13 @@
                     <li><a href="boeken_bekijken.php">Bekijk boeken</li>
                 ';
             }
+        } else {
+            echo '
+                <ul>
+                    <li><a href="inloggen.php">Log in</a></li>
+                </ul>
+            ';
         }
     ?>
-    <ul>
-        <li><a href="inloggen.php">Log in</a></li>
-    </ul>
-    
 </body>
 </html>
