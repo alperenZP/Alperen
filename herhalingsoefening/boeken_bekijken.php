@@ -32,6 +32,7 @@
                     <td>'.$row["prijs"].'</td>
                     <td>'.$row["type"].'</td>
                     <td><a href=boek_wijzigen.php?te_wijzigen='.$row["boeknummer"].'><button>✏️</button></a></td>
+                    <td><a href=boek_verwijderen.php?te_verwijderen='.$row["boeknummer"].'><button>❌</button></a></td>
                 </tr>
             ';
         }
