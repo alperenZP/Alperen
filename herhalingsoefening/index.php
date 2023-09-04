@@ -24,7 +24,7 @@
                 <ul>
                     <li><a href="wachtwoord_wijzigen.php">Wijzig wachtwoord</a></li>
                     <li><a href="gegevens_bekijken.php">Bekijk gegevens</a></li>
-                    <li><a href="inloggen.php">Log uit</a></li>
+                    <li><a href="uitloggen.php">Log uit</a></li>
                 
             ';
             if ($_SESSION["is_admin"]){
