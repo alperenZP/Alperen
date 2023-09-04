@@ -14,7 +14,7 @@
     
     <?php
         session_destroy();
-        echo 'Succesvol uitgelogd.';
+        echo 'Succesvol uitgelogd. Klik <a href="index.php">hier</a> om terug te gaan.';
     ?>
 
 </body>
