@@ -26,10 +26,12 @@
         ';
         while($row = $resultaat->fetch_assoc()){
             echo '
-                <td>'.$row["boeknummer"].'</td>
-                <td>'.$row["naam"].'</td>
-                <td>'.$row["prijs"].'</td>
-                <td>'.$row["type"].'</td>
+                <tr>
+                    <td>'.$row["boeknummer"].'</td>
+                    <td>'.$row["naam"].'</td>
+                    <td>'.$row["prijs"].'</td>
+                    <td>'.$row["type"].'</td>
+                </tr>
             ';
         }
         echo '</table>';
