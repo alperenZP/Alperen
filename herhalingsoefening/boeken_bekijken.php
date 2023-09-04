@@ -31,6 +31,7 @@
                     <td>'.$row["naam"].'</td>
                     <td>'.$row["prijs"].'</td>
                     <td>'.$row["type"].'</td>
+                    <td><a href=boek_wijzigen.php?te_wijzigen='.$row["boeknummer"].'><button>✏️</button></a></td>
                 </tr>
             ';
         }
