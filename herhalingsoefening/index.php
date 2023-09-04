@@ -23,12 +23,12 @@
             echo '
                 <ul>
                     <li><a href="wachtwoord_wijzigen.php">Wijzig wachtwoord</a></li>
-                    <li><a href="gegevens_bekijken.php">Gegevens bekijken</a></li>
+                    <li><a href="gegevens_bekijken.php">Bekijk gegevens</a></li>
                 
             ';
             if ($_SESSION["is_admin"]){
                 echo '
-                    <li><a href=""></li>
+                    <li><a href="boeken_bekijken.php">Bekijk boeken</li>
                 ';
             }
         }
