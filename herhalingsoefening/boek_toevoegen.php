@@ -19,7 +19,6 @@
             $type = $_POST["type"];
 
             $sql = 'INSERT INTO tblboek(naam, prijs, type) VALUES ("'.$naam.'", '.$prijs.', "'.$type.'")';
-            echo $sql;
             $resultaat = $mysqli->query($sql);
 
             if ($resultaat){
