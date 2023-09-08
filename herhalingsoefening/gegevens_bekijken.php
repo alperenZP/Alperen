@@ -13,8 +13,12 @@
 <body>
     <h1>Gegevens bekijken</h1>
     <h2><a href="index.php">Terug</a></h2>
-    <a href="boek_in_klas_toevoegen.php"><button>Voeg boek toe in een klas</button></a>
+    
     <?php
+        if ($_SESSION["is_admin"]){
+            echo '<a href="boek_in_klas_toevoegen.php"><button>Voeg boek toe in een klas</button></a>';
+        }
+
         $sql = 'SELECT * FROM tblklas';
         $resultaat = $mysqli->query($sql);
         while($row = $resultaat->fetch_assoc()){
