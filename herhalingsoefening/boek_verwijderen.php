@@ -18,7 +18,7 @@
         $row = $resultaat->fetch_assoc();
 
         if ($row["aantal"] == 0){
-            $sql = 'DELETE FROM tblboek WHERE boeknummer = '.$boeknummer.'';
+            $sql = 'DELETE FROM tblboek WHERE boeknummer = '.$_GET["te_verwijderen"].'';
             $resultaat = $mysqli->query($sql);
 
             if ($resultaat){
@@ -38,9 +38,6 @@
                 <p>Deze boek is al in gebruik. Je mag hij niet verwijderen.</p>
             ';
         }
-
-        
-        
     ?>
 </body>
 </html>
