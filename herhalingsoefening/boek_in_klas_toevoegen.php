@@ -20,7 +20,7 @@
                 <form method="post" action="boek_in_klas_toevoegen.php">
                     Boek: <select name="boeknummer">
             ';
-            $sql = 'SELECT * FROM tblboekinklas';
+            $sql = 'SELECT * FROM tblboek';
             $resultaat = $mysqli->query($sql);
             while ($row = $resultaat->fetch_assoc()){
                 echo '
