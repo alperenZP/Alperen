@@ -35,7 +35,7 @@
         } else {
             echo '
                 <h1>Mag niet verwijderen</h1>
-                <p>Deze boek is al in gebruik. Je mag hij niet verwijderen.</p>
+                <p>Deze boek is al in gebruik. Je mag hij niet verwijderen, klik <a href="boeken_bekijken.php">hier</a> om terug te gaan.</p>
             ';
         }
     ?>
