@@ -13,7 +13,7 @@
 <body>
     <h1>Gegevens bekijken</h1>
     <h2><a href="index.php">Terug</a></h2>
-    <button onclick="location.href="boek_in_klas_toevoegen.php">Voeg boek toe in een klas</button>
+    <a href="boek_in_klas_toevoegen.php"><button>Voeg boek toe in een klas</button></a>
     <?php
         $sql = 'SELECT * FROM tblklas';
         $resultaat = $mysqli->query($sql);
