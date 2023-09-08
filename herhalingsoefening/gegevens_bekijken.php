@@ -41,9 +41,13 @@
                         <td>'.$row2["naam"].'</td>
                         <td>€'.$row2["prijs"].'</td>
                         <td>'.$row2["type"].'</td>
-                        <td><a href=boek_in_klas_verwijderen.php?te_verwijderen='.$row2["volgnummer"].'><button>❌</button></a></td>
-                    </tr>
                 ';
+
+                if (isset($row["is_admin"])){
+                    echo '<td><a href=boek_in_klas_verwijderen.php?te_verwijderen='.$row2["volgnummer"].'><button>❌</button></a></td>';
+                }
+
+                echo '</tr>';
             }
             echo '
                 </table>
