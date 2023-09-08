@@ -19,6 +19,7 @@
             $type = $_POST["type"];
 
             $sql = 'INSERT INTO tblboek(naam, prijs, type) VALUES ('.$naam.', '.$prijs.', '.$type.')';
+            echo $sql;
             $resultaat = $mysqli->query($sql);
 
             if ($resultaat){
@@ -36,7 +37,7 @@
 
             echo '
                 <h1>Voeg boek toe</h1><br>
-                <form method="post" action="boek_wijzigen.php">
+                <form method="post" action="boek_toevoegen.php">
                     Titel: <input type="text" name="naam" required>
                     <br>
                     Prijs: <input type="number" step="0.01" name="prijs" required>
