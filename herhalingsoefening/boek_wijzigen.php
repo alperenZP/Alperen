@@ -30,7 +30,7 @@
             } else {
                 echo '
                     <h1>Mislukking</h1><br>
-                    <p>Error record wijzigen, '.$mysqli->error.'</p>
+                    <p>Error boek wijzigen, '.$mysqli->error.'</p>
                 ';
             }
         } else {
