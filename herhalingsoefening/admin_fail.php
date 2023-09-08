@@ -14,8 +14,8 @@
     <h1>Geen admin</h1>
     <h2><a href="index.php">Terug naar index</a></h2>
     <?php
-        if (!$_SESSION["is_admin"] || !isset($_SESSION["is_admin"])){
-            echo ("u bent geen admin, u hebt geen toegang tot deze pagina.");
+        if (!isset($_SESSION["is_admin"] || !$_SESSION["is_admin"])){
+            echo ("U bent geen admin, u hebt geen toegang tot deze pagina.");
         } else {
             header('Location: index.php');
         }
