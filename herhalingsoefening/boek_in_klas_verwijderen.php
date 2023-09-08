@@ -16,19 +16,21 @@
 <body>
 
     <?php
-        $sql = 'DELETE FROM tblboekinklas WHERE volgnummer = '.$_GET["te_verwijderen"].'';
-        $resultaat = $mysqli->query($sql);
+        if ($_SESSION["is_admin"]){
+            $sql = 'DELETE FROM tblboekinklas WHERE volgnummer = '.$_GET["te_verwijderen"].'';
+            $resultaat = $mysqli->query($sql);
 
-        if ($resultaat){
-            echo '
-                <h1>Succes</h1><br>
-                <p>Boek vanuit klas succesvol verwijderd, klik <a href="gegevens_bekijken.php">hier</a> om terug te gaan.</p>
-            ';
-        } else {
-            echo '
-                <h1>Mislukking</h1><br>
-                <p>Error boek vanuit klas verwijderen, '.$mysqli->error.'</p>
+            if ($resultaat){
+                echo '
+                    <h1>Succes</h1><br>
+                    <p>Boek vanuit klas succesvol verwijderd, klik <a href="gegevens_bekijken.php">hier</a> om terug te gaan.</p>
                 ';
+            } else {
+                echo '
+                    <h1>Mislukking</h1><br>
+                    <p>Error boek vanuit klas verwijderen, '.$mysqli->error.'</p>
+                    ';
+            }
         }
     ?>
 </body>
