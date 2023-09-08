@@ -24,7 +24,7 @@
             if ($resultaat){
                 echo '
                     <h1>Succes</h1><br>
-                    <p>Boek succesvol toegevoegd, klik <a href="boeken_bekijken.php">hier</a> om terug te gaan.</p>
+                    <p>Boek succesvol toegevoegd, klik <a href="gegevens_bekijken.php">hier</a> om terug te gaan.</p>
                 ';
             } else {
                 echo '
@@ -47,7 +47,7 @@
             echo '
                 </select>
                 <br>
-                Klas: <select name="klas">
+                Klas: <select name="klasnummer">
             ';
             $sql = 'SELECT * FROM tblklas';
             $resultaat = $mysqli->query($sql);
