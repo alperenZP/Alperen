@@ -1,6 +1,9 @@
 <?php
     session_start();
     include "connect.php";
+    if (!$_SESSION["is_admin"] || !isset($_SESSION["is_admin"])){
+        header('Location: admin_fail.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -15,35 +18,32 @@
     <h2><a href="index.php">Terug naar index</a></h2>
     <a href="boek_toevoegen.php"><button>Voeg boek toe</button></a>
     <?php
-        if (!$_SESSION["is_admin"] || !isset($_SESSION["is_admin"])){
-            header('Location: admin_fail.php');
-        }
-        
-
-        $sql = 'SELECT * FROM tblboek';
-        $resultaat = $mysqli->query($sql);
-        echo '
-            <table>
-                <tr>
-                    <th>Boeknummer</th>
-                    <th>Titel</th>
-                    <th>Prijs</th>
-                    <th>Type</th>
-                </tr>
-        ';
-        while($row = $resultaat->fetch_assoc()){
+        if ($_SESSION["is_admin"]){
+            $sql = 'SELECT * FROM tblboek';
+            $resultaat = $mysqli->query($sql);
             echo '
-                <tr>
-                    <td>'.$row["boeknummer"].'</td>
-                    <td>'.$row["naam"].'</td>
-                    <td>'.$row["prijs"].'</td>
-                    <td>'.$row["type"].'</td>
-                    <td><a href=boek_wijzigen.php?te_wijzigen='.$row["boeknummer"].'><button>✏️</button></a></td>
-                    <td><a href=boek_verwijderen.php?te_verwijderen='.$row["boeknummer"].'><button>❌</button></a></td>
-                </tr>
+                <table>
+                    <tr>
+                        <th>Boeknummer</th>
+                        <th>Titel</th>
+                        <th>Prijs</th>
+                        <th>Type</th>
+                    </tr>
             ';
+            while($row = $resultaat->fetch_assoc()){
+                echo '
+                    <tr>
+                        <td>'.$row["boeknummer"].'</td>
+                        <td>'.$row["naam"].'</td>
+                        <td>'.$row["prijs"].'</td>
+                        <td>'.$row["type"].'</td>
+                        <td><a href=boek_wijzigen.php?te_wijzigen='.$row["boeknummer"].'><button>✏️</button></a></td>
+                        <td><a href=boek_verwijderen.php?te_verwijderen='.$row["boeknummer"].'><button>❌</button></a></td>
+                    </tr>
+                ';
+            }
+            echo '</table>';
         }
-        echo '</table>';
     ?>
 </body>
 </html>

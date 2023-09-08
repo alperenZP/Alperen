@@ -1,6 +1,9 @@
 <?php
     session_start();
     include "connect.php";
+    if (!$_SESSION["is_admin"] || !isset($_SESSION["is_admin"])){
+        header('Location: admin_fail.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -13,59 +16,57 @@
 <body>
     <h1>Boek in klas toevoegen</h1>
     <?php
-        if (!$_SESSION["is_admin"] || !isset($_SESSION["is_admin"])){
-            header('Location: admin_fail.php');
-        }
-
-        if (isset($_POST["knop"])){
-            $boeknummer = $_POST["boeknummer"];
-            $klasnummer = $_POST["klasnummer"];
+        if ($_SESSION["is_admin"]){
+            if (isset($_POST["knop"])){
+                $boeknummer = $_POST["boeknummer"];
+                $klasnummer = $_POST["klasnummer"];
 
 
-            $sql = 'INSERT INTO tblboekinklas(klasnummer, boeknummer) VALUES ('.$klasnummer.', '.$boeknummer.')';
-            $resultaat = $mysqli->query($sql);
-            
-            if ($resultaat){
-                echo '
-                    <h1>Succes</h1><br>
-                    <p>Boek succesvol toegevoegd, klik <a href="gegevens_bekijken.php">hier</a> om terug te gaan.</p>
-                ';
+                $sql = 'INSERT INTO tblboekinklas(klasnummer, boeknummer) VALUES ('.$klasnummer.', '.$boeknummer.')';
+                $resultaat = $mysqli->query($sql);
+                
+                if ($resultaat){
+                    echo '
+                        <h1>Succes</h1><br>
+                        <p>Boek succesvol toegevoegd, klik <a href="gegevens_bekijken.php">hier</a> om terug te gaan.</p>
+                    ';
+                } else {
+                    echo '
+                        <h1>Mislukking</h1><br>
+                        <p>Error boek verwijderen, '.$mysqli->error.'</p>
+                    ';
+                }
             } else {
                 echo '
-                    <h1>Mislukking</h1><br>
-                    <p>Error boek verwijderen, '.$mysqli->error.'</p>
+                    <form method="post" action="boek_in_klas_toevoegen.php">
+                        Boek: <select name="boeknummer">
                 ';
-            }
-        } else {
-            echo '
-                <form method="post" action="boek_in_klas_toevoegen.php">
-                    Boek: <select name="boeknummer">
-            ';
-            $sql = 'SELECT * FROM tblboek';
-            $resultaat = $mysqli->query($sql);
-            while ($row = $resultaat->fetch_assoc()){
+                $sql = 'SELECT * FROM tblboek';
+                $resultaat = $mysqli->query($sql);
+                while ($row = $resultaat->fetch_assoc()){
+                    echo '
+                        <option value="'.$row["boeknummer"].'">'.$row["naam"].'</option>
+                    ';
+                }
                 echo '
-                    <option value="'.$row["boeknummer"].'">'.$row["naam"].'</option>
+                    </select>
+                    <br>
+                    Klas: <select name="klasnummer">
                 ';
-            }
-            echo '
-                </select>
-                <br>
-                Klas: <select name="klasnummer">
-            ';
-            $sql = 'SELECT * FROM tblklas';
-            $resultaat = $mysqli->query($sql);
-            while ($row = $resultaat->fetch_assoc()){
+                $sql = 'SELECT * FROM tblklas';
+                $resultaat = $mysqli->query($sql);
+                while ($row = $resultaat->fetch_assoc()){
+                    echo '
+                        <option value="'.$row["klasnummer"].'">'.$row["klasnaam"].'</option>
+                    ';
+                }
                 echo '
-                    <option value="'.$row["klasnummer"].'">'.$row["klasnaam"].'</option>
+                    </select>
+                    <br><br>
+                    <input type="submit" name="knop" value="Voeg toe">
+                    </form>
                 ';
             }
-            echo '
-                </select>
-                <br><br>
-                <input type="submit" name="knop" value="Voeg toe">
-                </form>
-            ';
         }
     ?>
 </body>
