@@ -15,6 +15,7 @@
     <h2><a href="index.php">Terug naar index</a></h2>
     <?php
         $sql = 'SELECT *, SUM(tblklas.aantalleerlingen) AS "totaal_leerlingen", (SUM(tblklas.aantalleerlingen)*tblboek.prijs) AS "totaal_prijs" FROM tblklas INNER JOIn tblboekinklas ON tblboekinklas.klasnummer = tblklas.klasnummer INNER JOIN tblboek ON tblboekinklas.boeknummer = tblboek.boeknummer GROUP BY tblboek.boeknummer';
+        
         $resultaat = $mysqli->query($sql);
         echo '
             <table>
@@ -29,9 +30,9 @@
         while($row = $resultaat->fetch_assoc()){
             echo '
                 <tr>
-                    <td>'.$row["tblboek.boeknummer"].'</td>
-                    <td>'.$row["tblboek.naam"].'</td>
-                    <td>'.$row["tblboek.prijs"].'</td>
+                    <td>'.$row["boeknummer"].'</td>
+                    <td>'.$row["naam"].'</td>
+                    <td>'.$row["prijs"].'</td>
                     <td>'.$row["totaal_leerlingen"].'</td>
                     <td>'.$row["totaal_prijs"].'</td>
                 </tr>
