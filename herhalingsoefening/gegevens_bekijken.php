@@ -20,7 +20,7 @@
             echo '
                 <h3>'.$row["klasnaam"].'</h3>
             ';
-            $sql2 = 'SELECT tblboek.naam, tblboek.prijs, tblboek.type FROM tblboekinklas INNER JOIN tblboek ON tblboek.boeknummer = tblboekinklas.boeknummer WHERE klasnummer = '.$row["klasnummer"].'';
+            $sql2 = 'SELECT * FROM tblboekinklas INNER JOIN tblboek ON tblboek.boeknummer = tblboekinklas.boeknummer WHERE klasnummer = '.$row["klasnummer"].'';
             $resultaat2 = $mysqli->query($sql2);
             
             echo '
