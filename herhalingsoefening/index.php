@@ -30,6 +30,7 @@
             if ($_SESSION["is_admin"]){
                 echo '
                     <li><a href="boeken_bekijken.php">Bekijk boeken</li>
+                    <li><a href="te_bestellen_boeken_bekijken.php">Bekijk te bestellen boeken</li>
                 ';
             }
         } else {
