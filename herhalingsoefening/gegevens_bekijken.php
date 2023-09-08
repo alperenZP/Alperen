@@ -47,7 +47,7 @@
                         <td>'.$row2["type"].'</td>
                 ';
 
-                if (isset($row["is_admin"])){
+                if (isset($_SESSION["is_admin"])){
                     echo '<td><a href=boek_in_klas_verwijderen.php?te_verwijderen='.$row2["volgnummer"].'><button>❌</button></a></td>';
                 }
 
