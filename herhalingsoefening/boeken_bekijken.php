@@ -12,6 +12,7 @@
 </head>
 <body>
     <h1>Boeken bekijken</h1>
+    <h2><a href="index.php">Terug naar index</a></h2>
     <?php
         $sql = 'SELECT * FROM tblboek';
         $resultaat = $mysqli->query($sql);
