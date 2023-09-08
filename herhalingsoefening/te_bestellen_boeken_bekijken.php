@@ -32,9 +32,9 @@
                 <tr>
                     <td>'.$row["boeknummer"].'</td>
                     <td>'.$row["naam"].'</td>
-                    <td>'.$row["prijs"].'</td>
+                    <td>€'.$row["prijs"].'</td>
                     <td>'.$row["totaal_leerlingen"].'</td>
-                    <td>'.$row["totaal_prijs"].'</td>
+                    <td>€'.$row["totaal_prijs"].'</td>
                 </tr>
             ';
         }
