@@ -14,7 +14,10 @@
     <h1>Boek in klas toevoegen</h1>
     <?php
         if (isset($_POST["knop"])){
+            $klasnummer = $_POST["klasnummer"];
+            
 
+            $sql = 
         } else {
             echo '
                 <form method="post" action="boek_in_klas_toevoegen.php">
