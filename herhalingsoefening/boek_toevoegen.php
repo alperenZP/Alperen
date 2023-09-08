@@ -18,14 +18,14 @@
             $prijs = $_POST["prijs"];
             $type = $_POST["type"];
 
-            $sql = 'INSERT INTO tblboek(naam, prijs, type) VALUES ('.$naam.', '.$prijs.', '.$type.')';
+            $sql = 'INSERT INTO tblboek(naam, prijs, type) VALUES ("'.$naam.'", '.$prijs.', "'.$type.'")';
             echo $sql;
             $resultaat = $mysqli->query($sql);
 
             if ($resultaat){
                 echo '
                     <h1>Succes</h1><br>
-                    <p>Boek succesvol toegevoegd, klik <a href="boeken_toevoegen.php">hier</a> om terug te gaan.</p>
+                    <p>Boek succesvol toegevoegd, klik <a href="boek_bekijken.php">hier</a> om terug te gaan.</p>
                 ';
             } else {
                 echo '
