@@ -13,6 +13,10 @@
 <body>
 
     <?php
+        if (!$_SESSION["is_admin"] || !isset($_SESSION["is_admin"])){
+            header('Location: admin_fail.php');
+        }
+
         $sql = 'SELECT *, count(*) AS aantal FROM tblboekinklas WHERE boeknummer = '.$_GET["te_verwijderen"].'';
         $resultaat = $mysqli->query($sql);
         $row = $resultaat->fetch_assoc();

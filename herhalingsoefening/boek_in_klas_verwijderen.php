@@ -13,6 +13,9 @@
 <body>
 
     <?php
+        if (!$_SESSION["is_admin"] || !isset($_SESSION["is_admin"])){
+            header('Location: admin_fail.php');
+        }
         $sql = 'DELETE FROM tblboekinklas WHERE volgnummer = '.$_GET["te_verwijderen"].'';
         $resultaat = $mysqli->query($sql);
 

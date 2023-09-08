@@ -15,6 +15,11 @@
     <h2><a href="index.php">Terug naar index</a></h2>
     <a href="boek_toevoegen.php"><button>Voeg boek toe</button></a>
     <?php
+        if (!$_SESSION["is_admin"] || !isset($_SESSION["is_admin"])){
+            header('Location: admin_fail.php');
+        }
+        
+
         $sql = 'SELECT * FROM tblboek';
         $resultaat = $mysqli->query($sql);
         echo '

@@ -13,6 +13,10 @@
 <body>
 
     <?php
+        if (!$_SESSION["is_admin"] || !isset($_SESSION["is_admin"])){
+            header('Location: admin_fail.php');
+        }
+
         if (isset($_POST["knop"])){
             $naam = $_POST["naam"];
             $prijs = $_POST["prijs"];
