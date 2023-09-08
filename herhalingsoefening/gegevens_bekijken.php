@@ -13,6 +13,7 @@
 <body>
     <h1>Gegevens bekijken</h1>
     <h2><a href="index.php">Terug</a></h2>
+    <button onclick="location.href="boek_in_klas_toevoegen.php">Voeg boek toe in een klas</button>
     <?php
         $sql = 'SELECT * FROM tblklas';
         $resultaat = $mysqli->query($sql);
@@ -44,7 +45,9 @@
                     </tr>
                 ';
             }
-            echo '</table>';
+            echo '
+                </table>
+            ';
 
             $sql2 = 'SELECT SUM(tblboek.prijs) AS "totaal" FROM tblboekinklas INNER JOIN tblboek ON tblboek.boeknummer = tblboekinklas.boeknummer WHERE klasnummer = '.$row["klasnummer"].'';
             $resultaat2 = $mysqli->query($sql2);
