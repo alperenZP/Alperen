@@ -14,10 +14,24 @@
     <h1>Boek in klas toevoegen</h1>
     <?php
         if (isset($_POST["knop"])){
+            $boeknummer = $_POST["boeknummer"];
             $klasnummer = $_POST["klasnummer"];
-            
 
-            $sql = 
+
+            $sql = 'INSERT INTO tblboekinklas(klasnummer, boeknummer) VALUES ('.$klasnummer.', '.$boeknummer.')';
+            $resultaat = $mysqli->query($sql);
+            
+            if ($resultaat){
+                echo '
+                    <h1>Succes</h1><br>
+                    <p>Boek succesvol toegevoegd, klik <a href="boeken_bekijken.php">hier</a> om terug te gaan.</p>
+                ';
+            } else {
+                echo '
+                    <h1>Mislukking</h1><br>
+                    <p>Error boek verwijderen, '.$mysqli->error.'</p>
+                ';
+            }
         } else {
             echo '
                 <form method="post" action="boek_in_klas_toevoegen.php">
