@@ -42,12 +42,15 @@
                 <h1>Wijzig Boek #'.$row["boeknummer"].'</h1><br>
                 <form method="post" action="boek_wijzigen.php">
                     <input type="hidden" name="boeknummer" value="'.$row["boeknummer"].'">
-                    <input type="text" name="naam" value="'.$row["naam"].'" required>
-                    <input type="number" step="0.01" name="prijs" value="'.$row["prijs"].'" required>
-                    <select name="type">
+                    Titel: <input type="text" name="naam" value="'.$row["naam"].'" required>
+                    <br>
+                    Prijs: <input type="number" step="0.01" name="prijs" value="'.$row["prijs"].'" required>
+                    <br>
+                    Type: <select name="type">
                         <option value="huur">huur</option>
                         <option value="koop">koop</option>
                     </select>
+                    <br><br>
                     <input type="submit" name="knop" value="Wijzig">
                 </form>
             ';
