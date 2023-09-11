@@ -11,7 +11,7 @@
     <title>Gegevens bekijken</title>
 </head>
 <body>
-    <h1>Gegevens bekjken</h1>
+    <h1>Gegevens bekijken</h1>
     <h2><a href="index.php">Terug</a></h2>
     
     <?php
