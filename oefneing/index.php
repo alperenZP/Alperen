@@ -57,6 +57,20 @@
         <a href="#item3" class="btn btn-xs">3</a>
         <a href="#item4" class="btn btn-xs">4</a>
     </div>
+    <progress class="progress progress-primary w-56" value="0" max="100"></progress>
+    <progress class="progress progress-primary w-56" value="10" max="100"></progress>
+    <progress class="progress progress-primary w-56" value="40" max="100"></progress>
+    <progress class="progress progress-primary w-56" value="70" max="100"></progress>
+    <progress class="progress progress-primary w-56" value="100" max="100"></progress>
+
+    <div class="toast toast-top toast-start">
+        <div class="alert alert-info">
+            <span>New mail arrived.</span>
+        </div>
+        <div class="alert alert-success">
+            <span>Message sent successfully.</span>
+        </div>
+    </div>
 </body>
 
 </html>
